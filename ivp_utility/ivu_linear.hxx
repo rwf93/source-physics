@@ -120,7 +120,7 @@ public:
     IVP_RETURN_TYPE fast_normize();	// normize vector (0.1f% error)
     void print(const char *comment = 0) const;
 
-    IVP_U_Float_Point();
+    IVP_U_Float_Point(){;};
     IVP_U_Float_Point(IVP_DOUBLE x, IVP_DOUBLE y,IVP_DOUBLE z){ k[0] = (IVP_FLOAT)x; k[1] = (IVP_FLOAT)y; k[2] = (IVP_FLOAT)z;};
     IVP_U_Float_Point(const IVP_U_Float_Point *p);
 
