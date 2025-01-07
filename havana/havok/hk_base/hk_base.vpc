@@ -5,8 +5,10 @@
 //-----------------------------------------------------------------------------
 
 $Macro SRCDIR		"..\..\..\.."
-$Macro OUTLIBDIR	"$LIBCOMMON"
-$Include "$SRCDIR\vpc_scripts\source_lib_base.vpc"
+$Macro OUTLIBDIR	"$SRCDIR\lib\common"
+
+$Include "$SRCDIR\vpc_scripts\source_lib_win32_base.vpc"	[$WIN32||$LINUX]
+$Include "$SRCDIR\vpc_scripts\source_lib_x360_base.vpc"		[$X360]
 
 $Configuration	"Debug"
 {
@@ -21,10 +23,10 @@ $Configuration	"Debug"
 		$IntermediateDirectory				"$SRCDIR\ivp\obj\x86_debug\hk_base"
 	}
 
-	$General [$WIN64]
+	$General [$X360]
 	{
-		$OutputDirectory					"$SRCDIR\ivp\obj\x64_debug\hk_base"
-		$IntermediateDirectory				"$SRCDIR\ivp\obj\x64_debug\hk_base"
+		$OutputDirectory					"$SRCDIR\ivp\obj\x360_debug\hk_base"
+		$IntermediateDirectory				"$SRCDIR\ivp\obj\x360_debug\hk_base"
 	}
 
 	$Compiler
@@ -49,12 +51,12 @@ $Configuration	"Debug"
 		$ProgramDatabaseFileName			"$SRCDIR\ivp\obj\x86_debug\hk_base\"
 	}
 
-	$Compiler [$WIN64]
+	$Compiler [$X360]
 	{
-		$PrecompiledHeaderFile				"$SRCDIR\ivp\obj\x64_debug\hk_base.pch"
-		$ASMListLocation					"$SRCDIR\ivp\obj\x64_debug\hk_base\"
-		$ObjectFileName						"$SRCDIR\ivp\obj\x64_debug\hk_base\"
-		$ProgramDatabaseFileName			"$SRCDIR\ivp\obj\x64_debug\hk_base\"
+		$PrecompiledHeaderFile				"$SRCDIR\ivp\obj\x360_debug\hk_base.pch"
+		$ASMListLocation					"$SRCDIR\ivp\obj\x360_debug\hk_base\"
+		$ObjectFileName						"$SRCDIR\ivp\obj\x360_debug\hk_base\"
+		$ProgramDatabaseFileName			"$SRCDIR\ivp\obj\x360_debug\hk_base\"
 	}
 }
 
@@ -71,10 +73,10 @@ $Configuration	"Release"
 		$IntermediateDirectory				"$SRCDIR\ivp\obj\x86_release\hk_base"
 	}
 
-	$General [$WIN64]
+	$General [$X360]
 	{
-		$OutputDirectory					"$SRCDIR\ivp\obj\x64_release\hk_base"
-		$IntermediateDirectory				"$SRCDIR\ivp\obj\x64_release\hk_base"
+		$OutputDirectory					"$SRCDIR\ivp\obj\x360_release\hk_base"
+		$IntermediateDirectory				"$SRCDIR\ivp\obj\x360_release\hk_base"
 	}
 
 	$Compiler
@@ -99,12 +101,12 @@ $Configuration	"Release"
 		$ProgramDatabaseFileName			"$SRCDIR\ivp\obj\x86_release\hk_base\"
 	}
 
-	$Compiler [$WIN64]
+	$Compiler [$X360]
 	{
-		$PrecompiledHeaderFile				"$SRCDIR\ivp\obj\x64_release\hk_base\hk_base.pch"
-		$ASMListLocation					"$SRCDIR\ivp\obj\x64_release\hk_base\"
-		$ObjectFileName						"$SRCDIR\ivp\obj\x64_release\hk_base\"
-		$ProgramDatabaseFileName			"$SRCDIR\ivp\obj\x64_release\hk_base\"
+		$PrecompiledHeaderFile				"$SRCDIR\ivp\obj\x360_release\hk_base\hk_base.pch"
+		$ASMListLocation					"$SRCDIR\ivp\obj\x360_release\hk_base\"
+		$ObjectFileName						"$SRCDIR\ivp\obj\x360_release\hk_base\"
+		$ProgramDatabaseFileName			"$SRCDIR\ivp\obj\x360_release\hk_base\"
 	}
 }
 

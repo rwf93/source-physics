@@ -974,11 +974,11 @@ void IVP_Real_Object::do_radar_checking(IVP_Radar *radar){
 	// check real synapse
 	for (syn = exact_synapses; syn; syn = syn->get_next()){
 	    IVP_Mindist *md = syn->get_mindist();
-	    int THIS = 0;
-	    if ( md->get_synapse(1)->get_object() == this ) THIS = 1;
+	    int THISFLAG = 0;
+	    if ( md->get_synapse(1)->get_object() == this ) THISFLAG = 1;
 	
-	    IVP_Synapse_Real *syn0 = md->get_synapse(THIS);
-	    IVP_Synapse_Real *syn1 = md->get_synapse(1-THIS);
+	    IVP_Synapse_Real *syn0 = md->get_synapse(THISFLAG);
+	    IVP_Synapse_Real *syn1 = md->get_synapse(1-THISFLAG);
 	    hit.this_object = syn0->get_object();
 	    hit.other_object = syn1->get_object();
 

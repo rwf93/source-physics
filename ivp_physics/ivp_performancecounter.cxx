@@ -165,7 +165,9 @@ void IVP_PerformanceCounter_Simple::pcount( IVP_PERFORMANCE_ELEMENT el){
 #		ifndef WIN32_LEAN_AND_MEAN
 #			define	WIN32_LEAN_AND_MEAN
 #		endif
+#if !defined(_X360)
 #		include	<windows.h>
+#endif
 #	else
 #		ifndef WINVER
 #			define WINVER 0x0500

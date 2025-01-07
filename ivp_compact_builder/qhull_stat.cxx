@@ -653,7 +653,7 @@ realT qh_stddev (int num, realT tot, realT tot2, realT *ave) {
   realT stddev;
 
   *ave= tot/num;
-  stddev= sqrt (tot2/num - *ave * *ave);
+  stddev= sqrtf (tot2/num - *ave * *ave);
   return stddev;
 } /* stddev */
 

@@ -15,7 +15,7 @@
 #include <ivp_surbuild_ledge_soup.hxx>
 #include <ivp_surbuild_pointsoup.hxx>
 
-#if defined(WIN32) && !defined(_XBOX)
+#if defined(WIN32) && !defined(_XBOX) && !defined(_X360)
 #include "wtypes.h"
 #elif defined(_XBOX)
 #	ifndef WINVER

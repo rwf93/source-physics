@@ -34,7 +34,7 @@ class IVP_Compact_Ledgetree_Node;
 
 
 class IVP_Compact_Surface {
-    IVP_Compact_Surface() = default;
+    IVP_Compact_Surface() {};
 
 public:
     IVP_U_Float_Point3	mass_center;

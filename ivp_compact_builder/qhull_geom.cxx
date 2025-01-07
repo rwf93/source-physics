@@ -802,7 +802,7 @@ void qh_normalize2 (coordT *normal, int dim, boolT toporient,
         *colp++ /= norm;
     }
   }else if (norm == 0.0) {
-    temp= sqrt (1.0/dim);
+    temp= sqrtf (1.0/dim);
     for (k= dim, colp= normal; k--; )
       *colp++ = temp;
   }else {

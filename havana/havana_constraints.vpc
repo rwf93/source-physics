@@ -5,8 +5,10 @@
 //-----------------------------------------------------------------------------
 
 $macro SRCDIR		"..\.."
-$Macro OUTLIBDIR	"$LIBCOMMON"
-$include "$SRCDIR\vpc_scripts\source_lib_base.vpc"
+$Macro OUTLIBDIR	"$SRCDIR\lib\common"
+
+$Include "$SRCDIR\vpc_scripts\source_lib_win32_base.vpc"	[$WIN32||$LINUX]
+$Include "$SRCDIR\vpc_scripts\source_lib_x360_base.vpc"		[$X360]
 
 $Configuration "Debug"
 {
@@ -16,10 +18,10 @@ $Configuration "Debug"
 		$IntermediateDirectory				"..\obj\x86_debug\havana_constraints"
 	}
 
-	$General [$WIN64]
+	$General [$X360]
 	{
-		$OutputDirectory					"..\obj\x64_debug\havana_constraints"
-		$IntermediateDirectory				"..\obj\x64_debug\havana_constraints"
+		$OutputDirectory					"..\obj\x360_debug\havana_constraints"
+		$IntermediateDirectory				"..\obj\x360_debug\havana_constraints"
 	}
 
 	$Compiler
@@ -42,12 +44,12 @@ $Configuration "Debug"
 		$ProgramDatabaseFileName			"..\obj\x86_debug\havana_constraints\"
 	}
 
-	$Compiler [$WIN64]
+	$Compiler [$X360]
 	{
-		$PrecompiledHeaderFile				"..\obj\x64_debug\havana_constraints\havana_constraints.pch"
-		$ASMListLocation					"..\obj\x64_debug\havana_constraints\"
-		$ObjectFileName						"..\obj\x64_debug\havana_constraints\"
-		$ProgramDatabaseFileName			"..\obj\x64_debug\havana_constraints\"
+		$PrecompiledHeaderFile				"..\obj\x360_debug\havana_constraints\havana_constraints.pch"
+		$ASMListLocation					"..\obj\x360_debug\havana_constraints\"
+		$ObjectFileName						"..\obj\x360_debug\havana_constraints\"
+		$ProgramDatabaseFileName			"..\obj\x360_debug\havana_constraints\"
 	}
 }
 
@@ -59,10 +61,10 @@ $Configuration "Release"
 		$IntermediateDirectory				"..\obj\x86_release\havana_constraints"
 	}
 
-	$General [$WIN64]
+	$General [$X360]
 	{
-		$OutputDirectory					"..\obj\x64_release\havana_constraints"
-		$IntermediateDirectory				"..\obj\x64_release\havana_constraints"
+		$OutputDirectory					"..\obj\x360_release\havana_constraints"
+		$IntermediateDirectory				"..\obj\x360_release\havana_constraints"
 	}
 
 	$Compiler
@@ -85,12 +87,12 @@ $Configuration "Release"
 		$ProgramDatabaseFileName			"..\obj\x86_release\havana_constraints\"
 	}
 
-	$Compiler [$WIN64]
+	$Compiler [$X360]
 	{
-		$PrecompiledHeaderFile				"..\obj\x64_release\havana_constraints\havana_constraints.pch"
-		$ASMListLocation					"..\obj\x64_release\havana_constraints\"
-		$ObjectFileName						"..\obj\x64_release\havana_constraints\"
-		$ProgramDatabaseFileName			"..\obj\x64_release\havana_constraints\"
+		$PrecompiledHeaderFile				"..\obj\x360_release\havana_constraints\havana_constraints.pch"
+		$ASMListLocation					"..\obj\x360_release\havana_constraints\"
+		$ObjectFileName						"..\obj\x360_release\havana_constraints\"
+		$ProgramDatabaseFileName			"..\obj\x360_release\havana_constraints\"
 	}
 }
 

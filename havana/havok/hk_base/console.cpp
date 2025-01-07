@@ -11,7 +11,9 @@
 #	ifdef _XBOX
 #		include <xtl.h>
 #	else
+#if !defined(_X360)
 #		include <windows.h>
+#endif
 #	endif
 #endif
 

@@ -1,14 +1,10 @@
-//-----------------------------------------------------------------------------
-//	IVP_COMPACTBUILDER.VPC
-//
-//	Project Script
-//-----------------------------------------------------------------------------
-
 $Macro SRCDIR		"..\.."
-$Macro OUTLIBDIR	"$LIBCOMMON"
-$Include "$SRCDIR\vpc_scripts\source_lib_base.vpc"
+$macro OUTLIBDIR	"$SRCDIR\lib\common"
 
-$Configuration	"Debug"
+$include "$SRCDIR\vpc_scripts\source_lib_win32_base.vpc"	[$WIN32||$LINUX]
+$include "$SRCDIR\vpc_scripts\source_lib_x360_base.vpc"		[$X360]
+
+$Configuration "Debug"
 {
 	$General
 	{
@@ -17,26 +13,22 @@ $Configuration	"Debug"
 
 	$General [$WIN32]
 	{
-		$OutputDirectory					"..\obj\x86_debug\ivp_compactbuilder"
-		$IntermediateDirectory				"..\obj\x86_debug\ivp_compactbuilder"
+		$OutputDirectory					"..\obj\win32_debug\ivp_compactbuilder"
+		$IntermediateDirectory				"..\obj\win32_debug\ivp_compactbuilder"
 	}
 
-	$General [$WIN64]
+
+	$General [$X360]
 	{
-		$OutputDirectory					"..\obj\x64_debug\ivp_compactbuilder"
-		$IntermediateDirectory				"..\obj\x64_debug\ivp_compactbuilder"
+		$OutputDirectory					"..\obj\x360_debug\ivp_compactbuilder"
+		$IntermediateDirectory				"..\obj\x360_debug\ivp_compactbuilder"
 	}
 
 	$Compiler
 	{
 		$AdditionalIncludeDirectories		"$BASE;$SRCDIR\ivp\ivp_intern;$SRCDIR\ivp\ivp_collision;$SRCDIR\ivp\ivp_physics;$SRCDIR\ivp\ivp_surface_manager;$SRCDIR\ivp\ivp_utility;$SRCDIR\ivp\ivp_controller;$SRCDIR\ivp\ivp_compact_builder;$SRCDIR\ivp\havana\havok;$SRCDIR\ivp\havana"
-		$PreprocessorDefinitions			"$BASE;IVP_VERSION_SDK;HAVOK_MOPP"
-	}
-	
-	$Compiler [$WINDOWS]
-	{
-		$BasicRuntimeChecks					"Both (/RTC1, equiv. to /RTCsu)"
-		$WarningLevel						"Level 3 (/W3)"
+		$PreprocessorDefinitions			"$BASE;IVP_VERSION_SDK;HAVOK_MOPP" [$WIN32]
+		$PreprocessorDefinitions			"$BASE;IVP_VERSION_SDK;HAVOK_MOPP;__BIG_ENDIAN__;BIG_ENDIAN" [$X360]
 	}
 
 	$Compiler [$WIN32]
@@ -47,16 +39,16 @@ $Configuration	"Debug"
 		$ProgramDatabaseFileName			"..\obj\x86_debug\ivp_compactbuilder\"
 	}
 
-	$Compiler [$WIN64]
+	$Compiler [$X360]
 	{
-		$PrecompiledHeaderFile				"..\obj\x64_debug\ivp_compactbuilder\ivp_compactbuilder_lib.pch"
-		$ASMListLocation					"..\obj\x64_debug\ivp_compactbuilder\"
-		$ObjectFileName						"..\obj\x64_debug\ivp_compactbuilder\"
-		$ProgramDatabaseFileName			"..\obj\x64_debug\ivp_compactbuilder\"
+		$PrecompiledHeaderFile				"..\obj\x360_debug\ivp_compactbuilder\ivp_compactbuilder_lib.pch"
+		$ASMListLocation					"..\obj\x360_debug\ivp_compactbuilder\"
+		$ObjectFileName						"..\obj\x360_debug\ivp_compactbuilder\"
+		$ProgramDatabaseFileName			"..\obj\x360_debug\ivp_compactbuilder\"
 	}
 }
 
-$Configuration	"Release"
+$Configuration "Release"
 {
 	$General
 	{
@@ -65,46 +57,40 @@ $Configuration	"Release"
 
 	$General [$WIN32]
 	{
-		$OutputDirectory					"..\obj\x86_release\ivp_compactbuilder"
-		$IntermediateDirectory				"..\obj\x86_release\ivp_compactbuilder"
+		$OutputDirectory					"..\obj\win32_release\ivp_compactbuilder"
+		$IntermediateDirectory				"..\obj\win32_release\ivp_compactbuilder"
 	}
 
-	$General [$WIN64]
+	$General [$X360]
 	{
-		$OutputDirectory					"..\obj\x64_release\ivp_compactbuilder"
-		$IntermediateDirectory				"..\obj\x64_release\ivp_compactbuilder"
+		$OutputDirectory					"..\obj\x360_release\ivp_compactbuilder"
+		$IntermediateDirectory				"..\obj\x360_release\ivp_compactbuilder"
 	}
 
 	$Compiler
 	{
 		$AdditionalIncludeDirectories		"$BASE;$SRCDIR\ivp\ivp_intern;$SRCDIR\ivp\ivp_collision;$SRCDIR\ivp\ivp_physics;$SRCDIR\ivp\ivp_surface_manager;$SRCDIR\ivp\ivp_utility;$SRCDIR\ivp\ivp_controller;$SRCDIR\ivp\ivp_compact_builder;$SRCDIR\ivp\havana\havok;$SRCDIR\ivp\havana"
-		$PreprocessorDefinitions			"$BASE;IVP_VERSION_SDK;HAVOK_MOPP"
-	}
-
-	$Compiler [$WINDOWS]
-	{
-		$InlineFunctionExpansion			"Only __inline (/Ob1)"
-		$Create/UsePrecompiledHeader		"Use Precompiled Header (/Yu)"
-		$Create/UsePCHThroughFile			"ivp_physics.hxx"
-		$WarningLevel						"Level 3 (/W3)"
+		$PreprocessorDefinitions			"$BASE;IVP_VERSION_SDK;HAVOK_MOPP" [$WIN32]
+		$PreprocessorDefinitions			"$BASE;IVP_VERSION_SDK;HAVOK_MOPP;__BIG_ENDIAN__;BIG_ENDIAN" [$X360]
 	}
 
 	$Compiler [$WIN32]
 	{
-		$PrecompiledHeaderFile				"..\obj\x86_release\ivp_compactbuilder\ivp_compactbuilder_lib.pch"
-		$ASMListLocation					"..\obj\x86_release\ivp_compactbuilder\"
-		$ObjectFileName						"..\obj\x86_release\ivp_compactbuilder\"
-		$ProgramDatabaseFileName			"..\obj\x86_release\ivp_compactbuilder\"
+		$PrecompiledHeaderFile				"..\obj\x86_debug\ivp_compactbuilder\ivp_compactbuilder_lib.pch"
+		$ASMListLocation					"..\obj\x86_debug\ivp_compactbuilder\"
+		$ObjectFileName						"..\obj\x86_debug\ivp_compactbuilder\"
+		$ProgramDatabaseFileName			"..\obj\x86_debug\ivp_compactbuilder\"
 	}
 
-	$Compiler [$WIN64]
+	$Compiler [$X360]
 	{
-		$PrecompiledHeaderFile				"..\obj\x64_release\ivp_compactbuilder\ivp_compactbuilder_lib.pch"
-		$ASMListLocation					"..\obj\x64_release\ivp_compactbuilder\"
-		$ObjectFileName						"..\obj\x64_release\ivp_compactbuilder\"
-		$ProgramDatabaseFileName			"..\obj\x64_release\ivp_compactbuilder\"
+		$PrecompiledHeaderFile				"..\obj\x360_release\ivp_compactbuilder\ivp_compactbuilder_lib.pch"
+		$ASMListLocation					"..\obj\x360_release\ivp_compactbuilder\"
+		$ObjectFileName						"..\obj\x360_release\ivp_compactbuilder\"
+		$ProgramDatabaseFileName			"..\obj\x360_release\ivp_compactbuilder\"
 	}
 }
+
 
 $Project "ivp_compactbuilder"
 {

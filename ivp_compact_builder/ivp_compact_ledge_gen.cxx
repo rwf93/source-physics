@@ -6,7 +6,7 @@
  *                      from intermediate (non-compact) representation.
  ********************************************************************************/
 
-
+#include "stdafx.h"
 #include <ivp_physics.hxx>
 #include <string.h>
 #include <ivu_hash.hxx>

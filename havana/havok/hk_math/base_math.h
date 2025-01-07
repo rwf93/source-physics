@@ -9,6 +9,28 @@
 #	define HK_PI        3.14159265358979323846f	/* pi */
 #	define HK_PI_2      1.57079632679489661923f	/* pi/2 */
 
+#undef fabsd
+#undef sqrt
+#undef sqrt_inv
+#undef fast_sqrt
+#undef fast_sqrt_inv
+#undef fabs
+#undef tan
+#undef sin
+#undef cos
+#undef atan2
+#undef fast_approx_atan2
+#undef fast_approx_atan2_normized
+#undef asin
+#undef acos
+#undef max
+#undef min
+#undef floor
+#undef ceil
+#undef clamp
+#undef pow
+#undef exp
+
 #define HK_REAL_MAX 1e16f
 #define HK_REAL_EPS 1e-16f		/* the minumum resolution of real */
 #define HK_REAL_RES 1e-7f		/* resolution of hk_real of  relative to 1.0f */

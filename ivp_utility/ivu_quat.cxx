@@ -960,7 +960,7 @@ void APIENTRY gluQuatLog_EXT(GL_QUAT* q1, GL_QUAT* q2)
 {
 	GLIVP_FLOAT  length;
 
-	length = sqrt (q1->x * q1->x + q1->y * q1->y + q1->z * q1->z);
+	length = sqrtf (q1->x * q1->x + q1->y * q1->y + q1->z * q1->z);
 
 	//make sure we do not divide by 0
 	if (q1->w != 0.0f) 
@@ -995,7 +995,7 @@ void APIENTRY gluQuatLnDif_EXT(GL_QUAT *q1, GL_QUAT *q2, GL_QUAT *res)
 
 	qt_inverse (a, &inv);
 	qt_mul (&inv, b, &dif);
-	len = sqrt (dif.x*dif.x + dif.y*dif.y + dif.z*dif.z);
+	len = sqrtf (dif.x*dif.x + dif.y*dif.y + dif.z*dif.z);
 	s = qt_dot (a, b);
 	if (s != 0.0f) len1 = atan (len / s); else len1 = IVP_PI/2;
 	if (len != 0.0f) len1 /= len;

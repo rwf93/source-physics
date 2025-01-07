@@ -2047,7 +2047,7 @@ void qh_nearcoplanar ( void /* qh.facet_list */) {
   }else if (!qh KEEPcoplanar || !qh KEEPinside) {
     qh_outerinner (NULL, NULL, &innerplane);
     if (qh JOGGLEmax < REALmax/2)
-      innerplane -= qh JOGGLEmax * sqrt (qh hull_dim);
+      innerplane -= qh JOGGLEmax * sqrtf (qh hull_dim);
     numpart= 0;
     FORALLfacets { 
       if (facet->coplanarset) {
@@ -2094,7 +2094,7 @@ vertexT *qh_nearvertex (facetT *facet, pointT *point, realT *bestdistp) {
       bestvertex= vertex;
     }
   }
-  *bestdistp= sqrt (bestdist);
+  *bestdistp= sqrtf (bestdist);
   return bestvertex;
 } /* nearvertex */
 
