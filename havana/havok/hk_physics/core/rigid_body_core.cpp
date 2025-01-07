@@ -1,6 +1,6 @@
 #include <ivp_physics.hxx>
 #include <hk_physics/physics.h>
-
+#include <float.h>
 
 void hk_Rigid_Body_Core::add_to_mass_matrix_inv(
 		hk_Core_VMQ_Input &input,
